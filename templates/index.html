@@ -4,18 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shipping Route</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      form {
+        display: grid;
+        gap: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      label {
+        text-align: left;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
   </head>
   <body>
     <h1>Shipping Route</h1>
     <form action="/show_route" method="post">
       <label for="csv_path">CSV Path:</label>
-      <input type="text" name="csv_path" required /><br />
+      <input type="text" name="csv_path" required />
 
       <label for="source_node">Source Node:</label>
-      <input type="text" name="source_node" required /><br />
+      <input type="text" name="source_node" required />
 
       <label for="destination_node">Destination Node:</label>
-      <input type="text" name="destination_node" required /><br />
+      <input type="text" name="destination_node" required />
 
       <button type="submit">Show Route</button>
     </form>
