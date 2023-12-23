@@ -3,6 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 from io import BytesIO
+import base64
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def shortest(maps, asal, tujuan):
         for node, jarak in maps[current_node].items():
             if jarak == jarak_terpendek:
                 result.append(node)
-
+    
     return result
 
 def load_graph_from_csv(csv_path):
@@ -29,7 +30,7 @@ def load_graph_from_csv(csv_path):
         graph[row['source']][row['target']] = row['weight']
     return graph
 
-def draw(maps):
+def draw_with_shortest_path(maps, shortest_path):
     g = nx.DiGraph()
     color = []
 
@@ -40,10 +41,13 @@ def draw(maps):
     pos = nx.shell_layout(g)
     edge_labels = {(u, v): d['weight'] for u, v, d in g.edges(data=True)}
 
-    # Hasilkan plot secara dinamis dan simpan ke buffer BytesIO
+    # Highlight edges in the shortest path with a different color
+    edge_colors = ['red' if (u, v) in zip(shortest_path, shortest_path[1:]) else 'gray' for u, v in g.edges()]
+
+    # Generate plot dynamically and save to BytesIO buffer
     fig, ax = plt.subplots()
     nx.draw_networkx_nodes(g, pos, node_size=1000, node_color=color, ax=ax)
-    nx.draw_networkx_edges(g, pos, ax=ax)
+    nx.draw_networkx_edges(g, pos, edgelist=g.edges(), edge_color=edge_colors, ax=ax)
     nx.draw_networkx_labels(g, pos, ax=ax)
     nx.draw_networkx_edge_labels(g, pos, edge_labels=edge_labels, ax=ax)
     ax.set_title("MAPS")
@@ -56,6 +60,7 @@ def draw(maps):
 
     return img_buffer
 
+#     return img_buffer
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -67,10 +72,10 @@ def show_route():
     destination_node = request.form['destination_node']
 
     maps = load_graph_from_csv(csv_path)
-    img_buffer = draw(maps)
-
     shortest_path = shortest(maps, source_node, destination_node)
-    return render_template('show_route.html', shortest_path=shortest_path, img_buffer=img_buffer.getvalue(), mimetype='image/png')
+    img_buffer = draw_with_shortest_path(maps, shortest_path)
+
+    return render_template('show_route.html', shortest_path=shortest_path, img_buffer=base64.b64encode(img_buffer.getvalue()).decode('utf-8'))
 
 @app.route('/get_image')
 def get_image():
