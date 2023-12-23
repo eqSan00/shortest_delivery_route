@@ -3,6 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 from io import BytesIO
+import base64
 
 app = Flask(__name__)
 
@@ -70,7 +71,7 @@ def show_route():
     img_buffer = draw(maps)
 
     shortest_path = shortest(maps, source_node, destination_node)
-    return render_template('show_route.html', shortest_path=shortest_path, img_buffer=img_buffer.getvalue(), mimetype='image/png')
+    return render_template('show_route.html', shortest_path=shortest_path, img_buffer=base64.b64encode(img_buffer.getvalue()))
 
 @app.route('/get_image')
 def get_image():
