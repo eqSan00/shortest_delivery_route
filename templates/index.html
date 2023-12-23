@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping Route</title>
+  </head>
+  <body>
+    <h1>Shipping Route</h1>
+    <form action="/show_route" method="post">
+      <label for="csv_path">CSV Path:</label>
+      <input type="text" name="csv_path" required /><br />
+
+      <label for="source_node">Source Node:</label>
+      <input type="text" name="source_node" required /><br />
+
+      <label for="destination_node">Destination Node:</label>
+      <input type="text" name="destination_node" required /><br />
+
+      <button type="submit">Show Route</button>
+    </form>
+  </body>
+</html>

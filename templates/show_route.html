@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping Route - Result</title>
+  </head>
+  <body>
+    <h1>Shortest Route</h1>
+    <p>
+      Shortest route 
+      <form action="/show_route" method="post">
+        '{{ shortest_path[0] }}' to '{{ shortest_path[-1] }}': {{ shortest_path }}
+      </form>
+    </p>
+    <img
+      src="{{ url_for('static', filename='figure_1.png') }}"
+      alt="Shipping Route"
+    />
+  </body>
+</html>
