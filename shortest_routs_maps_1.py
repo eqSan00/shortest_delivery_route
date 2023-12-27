@@ -64,6 +64,7 @@ def draw_with_shortest_path(maps, shortest_path):
 @app.route('/')
 def index():
     return render_template('index.html')
+    
 
 @app.route('/show_route', methods=['POST'])
 def show_route():

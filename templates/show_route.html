@@ -1,65 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shipping Route - Result</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
     <style>
-      body {
-        font-family: "Arial", sans-serif;
-        text-align: center;
-        margin: 20px;
-      }
+        body {
+            margin: 0;
+            background-image: url('https://lh3.googleusercontent.com/pw/ABLVV85teTRPnwMUNY2vuItlkA_kmObOfhD5dRILqfykU-J_1700-9YhunHuZ89lQbYeFFB3cMENxoSCo784HaJfHlv0Kbe89xMq-Sv4tKJtP5PUcSF6FfOlXdD7zrUnbUqg0_8VjdHTPUIhUbdyQn502JbouAJiD8t1C-H35degk1QDuJuBB3ZcBneJ1cxH7PxZBnCF51YQ_tUleagTk3V5c3Gm5PLl2rtzL_Aa0xvf_bJZnh7CRvpCCwCxTXwfiQTWxvYb4U69FoAYm3EbS7z6CH3G-M3LpoYIo63v4jc1ct4i0WzRmD5TINABqfEjO3nI0yMr6FJV5p-Y-jliioSR35uryd4RTBNbVkw5DGCmShEpvFApQuEn4umlHG5a4mj7EQl7tfHlfjmVP1nhDIMmhBK1dxZi_sodP_PQs-bVZF9In-egl9WrdYkenyRtss6B5--wv28XiUhWVTK2UG_vtw3xQRqzPQtFx22_uhLNT3em0HvSnX8my2nYsWAIlE7ui-sahjfaDss05ENgofa3OtUsv6LQDX8cA_kVxxPr3-9bvC-Jy0B5PiljkyW7zrsSJOk4vLyDUjY8uorp-acx9ihJAPPW2haz4ZdSSDIFqolyaxS0ebJuBePbUSU8Pxy9r5V6VZ5fgDjxv6X6ZeqOarLNTLiJwcL_2KziqO2dklrXHqzfMknsm7FuAS9m9-vP5lnRRF7bMNX4v8DGUb3oUqQT2Abmj1J_ld0ALkONKx_dhlCasTOiOoGCQ1aAD1b_ICW86aAEJSJjKCfK9Cj23GIhFosUki9JsK8vWIxjSdQgazaD3E119C1zEjJ4mC3grK3lmXIHUFjnR1LtRKOr4pJsYQUoavKmWXsCr-exEmfCx9Y-NKPXHYn79aByoNAHyV39=w1228-h819-s-no-gm?authuser=0');
+            /* Ganti 'background-image.jpg' dengan path ke gambar latar belakang Anda */
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: sans-serif;
+            height: 100vh;
+        }
 
-      h1 {
-        color: #333;
-      }
+        header {
+            position: absolute;
+            background: #ffffff;
+            top: 0;
+            left: 0;
+            padding: 0 100px;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-      p {
-        margin: 20px 0;
-      }
+        header .logo {
+            color: rgb(83, 83, 83);
+            height: 60px;
+            line-height: 60px;
+            font-size: 24px;
+            float: left;
+            font-weight: bold;
+        }
 
-      img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 20px;
-      }
+        header nav {
+            float: right;
+        }
+
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            list-style: none;
+        }
+
+        header nav ul li a {
+            color: rgb(83, 83, 83);
+            height: 60px;
+            line-height: 60px;
+            padding: 0 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        article {
+            margin: 20px;
+            padding: 50px;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .box {
+            text-align: center;
+            background-color: rgba(207, 207, 207, 0.5);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            width: 500px;
+            height: 650px;
+
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+
+            display: grid;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+
+            text-align: left;
+        }
+
+        .hbox {
+            font-size: 25px;
+            color: white;
+        }
+
+        .short {
+            font-size: 20px;
+        }
+
+        input {
+            border-radius: 12px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            border-radius: 20px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ececec;
+        }
+
+
+        header nav ul li a:hover,
+        header nav ul li a.active {
+            color: #ffffff;
+            background-color: #aaaaaa;
+        }
+
+        .menu-toggle {
+            color: rgb(94, 94, 94);
+            float: right;
+            line-height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+
+
+        @media (max-width: 650px) {
+            header {
+                padding: 0 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            header nav {
+                position: absolute;
+                width: 100%;
+                height: calc(100vh - 50px);
+                background: #333;
+                top: 50px;
+                left: -100%;
+                transition: 0.5s all;
+            }
+
+            header nav.active {
+                left: 0;
+            }
+
+            header nav ul {
+                display: block;
+                text-align: center;
+            }
+
+            header nav ul li a {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                color: rgb(255, 255, 255);
+            }
+        }
     </style>
-  </head>
-  <body>
-    <h1>Shortest Route</h1>
-    <p>
-      Shortest route from '{{ shortest_path[0] }}' to '{{ shortest_path[-1] }}':
-      {{ shortest_path }}
-    </p>
-    <img src="data:image/png;base64, {{ img_buffer }}" alt="Shipping Route" />
-    <img
-      src="https://samplesuperstore.s3.amazonaws.com/result/plot.jpg"
-      alt="plot"
-    />
-    <img
-      src="https://samplesuperstore.s3.amazonaws.com/result/plt(city_with_highest_sales).jpg"
-      alt="plot"
-    />
-    <img
-      src="https://samplesuperstore.s3.amazonaws.com/result/plt(profite_region).jpg"
-      alt="plot"
-    />
-    <img
-      src="https://samplesuperstore.s3.amazonaws.com/result/plt(sales,profit,quantity).jpg"
-      alt="plot"
-    />
-    <img
-      src="https://samplesuperstore.s3.amazonaws.com/result/plt(sub_kategori).jpg"
-      alt="plot"
-    />
-    <img
-      src="https://samplesuperstore.s3.amazonaws.com/result/shipmode.jpg"
-      alt="plot"
-    />
-    <img
-      src="https://samplesuperstore.s3.amazonaws.com/result/subcategory.jpg"
-      alt="plot"
-    />
-  </body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Thinker</div>
+        <nav>
+            <ul>
+                <li><a href="/home.html" class="active">Home</a></li>
+                <li><a href="#service">Data</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fa fa-bars"></i>
+        </div>
+    </header>
+    <article>
+        <nav class="box">
+            <h1>Shortest Route</h1>
+            <p>
+                Shortest route
+            <form action="/show_route" method="post" class="short">
+                '{{ shortest_path[0] }}' to '{{ shortest_path[-1] }}': {{ shortest_path }}
+            </form>
+            </p>
+
+            <img src="data:image/png;base64, {{ img_buffer }}" alt="Shipping Route" style="width: 80%; height: 80%;" />
+
+
+        </nav>
+
+    </article>
+    <script>
+        $(document).ready(function () {
+            $(".menu-toggle").click(function () {
+                $('nav').toggleClass('active');
+            })
+        })
+    </script>
+</body>
+
 </html>
